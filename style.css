@@ -1,0 +1,22 @@
+body{
+	font-family: 'Lato', sans-serif;
+}
+form{text-align:center;}
+div{padding:50px;}
+header{
+    text-align: center;
+    font-size: 2em;
+    text-shadow: 2px 2px 5px #dedede;
+    margin-bottom: 50px;
+}
+input{display: inline-block;font-family: inherit;font-size: 2em;text-align: center;
+    transition: 0.3s ease-in-out;}
+input:hover{
+    color: red;
+    text-shadow:1px 1px 10px #00000063;
+    transition: 0.3s ease-in-out;
+}
+
+#result{
+
+}
