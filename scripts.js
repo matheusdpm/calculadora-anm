@@ -43,29 +43,41 @@ function updateResult(){
 	var prorrogar = 288;
 	var diff = dataInicio.getTime() - data.getTime();   
 	var daydiff = (diff / 31536000000).toFixed(0);     
+	
 	if (caso == "case3") {
 		prorrogar=288;
 	} else if (caso == "case2") {
-		prorrogar=min(288,prorrogar - daydiff);
+		prorrogar=Math.min(288,prorrogar - daydiff);
 	} else {
 		prorrogar=288 - daydiff;
 	}
+
 	var strtDt  = new Date("2020-03-19");
 	var endDt  = new Date("2021-01-02");
+	
 	if (data <= strtDt){
 		div.textContent = "Antes do Prazo estabelecido";
 	} else if (data >= endDt){
 		div.textContent = "Depois do prazo estabalecido";
 	} else {
 		data.setDate(data.getDate()+prorrogar)
-		div.textContent = "A data para sua coisa é: " + getDataString(data);
+		div.textContent = "O novo vencimento é em: " + getDataString(data);
 	}
 }
 
 
 function updateRadio(id){
 	let a = document.getElementById(id);
+	let pre = document.getElementById("pre");
 	caso=id;
+	
+	if (caso == "case3") {
+		pre.textContent = "Informe a data do vencimento de vigência";
+	} else if (caso == "case2") {
+		pre.textContent = "Informe a data de publicação ";
+	} else {
+		pre.textContent = "Informe a data do vencimento";
+	}
 }
 
 updateResult();
